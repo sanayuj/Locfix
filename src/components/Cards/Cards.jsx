@@ -2,10 +2,11 @@ import React,{useState,useEffect} from 'react'
 import axios from '../../axios'
 
 function Cards(props) {
-    const [state,setState]=useState({})
+    const [movie,setmovie]=useState({})
     useEffect(()=>{
         axios.get(props.url).then((response)=>{
-            console.log(response,"RES!!")
+            console.log(response.data.results,"RES!!")
+            setmovie(response.data.results)
         })
     })
   return (
